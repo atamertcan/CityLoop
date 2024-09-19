@@ -1,8 +1,9 @@
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class Main2 {
+public class Main {
 
     private static Scanner sc = new Scanner(System.in);
     private static ListIterator<Town> iterator;
@@ -41,11 +42,12 @@ public class Main2 {
                     try{
 
                         forward(locations, indexForwardBackward);
-                        indexForwardBackward++;
-                    }catch (IndexOutOfBoundsException e){
+                    }catch (IndexOutOfBoundsException | NoSuchElementException e){
                         System.out.println("You are out of loop.");
                         flag = false;
                     }
+
+                    indexForwardBackward++;
                     break;
 
 
@@ -54,7 +56,7 @@ public class Main2 {
 
                         backward(locations, indexForwardBackward);
                         indexForwardBackward--;
-                    }catch (IndexOutOfBoundsException e){
+                    }catch (IndexOutOfBoundsException | NoSuchElementException e){
                         System.out.println("You are out of loop.");
                         flag = false;
                     }
@@ -101,9 +103,10 @@ public class Main2 {
 
         var forwardIterator = list.listIterator(index);
 
-
         if (forwardIterator.hasNext()){
-            System.out.println("You are currently at " + forwardIterator.next().getName());
+            Town currentTown = forwardIterator.next();
+            System.out.println("You are currently at " + currentTown.getName() +
+                    ", distance is " + currentTown.getDistance() + "km.");
 
         }
         else{
@@ -119,8 +122,10 @@ public class Main2 {
         var backwardIterator = list.listIterator(index);
 
         if (backwardIterator.hasPrevious()){
+            Town currentTown = backwardIterator.previous();
+            System.out.println("You are currently at " + currentTown.getName() +
+                    ", distance is " + currentTown.getDistance() + "km.");
 
-            System.out.println("You are currently at " + backwardIterator.previous().getName());
         }
         else{
 
@@ -140,7 +145,7 @@ public class Main2 {
         System.out.print(" ".repeat(10));
         System.out.println("| Distance");
         System.out.println("#".repeat(30));
-        
+
         while(iterator.hasNext()){
 
             currentTown = iterator.next();
