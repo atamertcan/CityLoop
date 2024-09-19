@@ -2,7 +2,7 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-public class Main {
+public class Main2 {
 
     private static Scanner sc = new Scanner(System.in);
     private static ListIterator<Town> iterator;
@@ -123,6 +123,7 @@ public class Main {
             System.out.println("You are currently at " + backwardIterator.previous().getName());
         }
         else{
+
             System.out.println("You are out of loop.");
         }
 
@@ -135,11 +136,28 @@ public class Main {
 
         System.out.println("-".repeat(30));
 
+        System.out.print("City");
+        System.out.print(" ".repeat(10));
+        System.out.println("| Distance");
+        System.out.println("#".repeat(30));
+        
         while(iterator.hasNext()){
 
             currentTown = iterator.next();
-            System.out.printf("%s %20s %s", currentTown.getName(), "|", currentTown.getDistance());
+            int space = 0;
+
+            System.out.printf("%s", currentTown.getName());
+            if(currentTown.getName().length() < 14){
+                space = 14 - currentTown.getName().length();
+
+                System.out.print(" ".repeat(space));
+            }
+            System.out.print("| ");
+            System.out.printf("%skm", currentTown.getDistance());
+            System.out.println(" ");
         }
+
+        System.out.println("-".repeat(30));
 
     }
 
