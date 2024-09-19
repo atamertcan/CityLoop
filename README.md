@@ -11,7 +11,8 @@ This program made for self-improvement about linked lists.
 
 ![cities](https://github.com/user-attachments/assets/4aaa768e-f678-41cf-b8e4-79481f02d28f)
 
-<p align = "center"><img src="https://github.com/user-attachments/assets/86dc334a-9483-4658-a36f-c1ca23f4edda"></p>
+
+![cities2](https://github.com/user-attachments/assets/d399beca-2f89-44c5-8074-ec7d44cfd605)
 
 
 
